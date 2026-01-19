@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "site": {
+    "name": "Serendipity Technology",
+    "url": "https://serendipitytechnology.com",
+    "contact": ""
+  },
+  "repository": {
+    "url": "https://github.com/serendipitytech/serendipitytechnology.com.git",
+    "branches": {
+      "production": "main",
+      "development": "dev"
+    }
+  },
+  "structure": {
+    "homepage": "index.html",
+    "styles": "css/",
+    "scripts": "js/",
+    "images": "img/"
+  },
+  "deployment": {
+    "method": "cpanel-git",
+    "production": "https://serendipitytechnology.com",
+    "development": "dev.serendipitytechnology.com"
+  },
+  "ai": {
+    "enabled": true,
+    "model": "claude-sonnet-4-20250514",
+    "features": {
+      "contentUpdates": true,
+      "styleChanges": true,
+      "structureChanges": false
+    }
+  },
+  "initialized": "2026-01-19T19:06:47.105Z"
+}
