@@ -1,211 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serendipity Technology</title>
-
-  <!-- Your custom styles -->
-  <link rel="stylesheet" href="css/concierge_style.css">
-
-  <!-- AOS animations -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-  <!-- ✅ Correct Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      AOS.init({
-        once: true,
-        duration: 800
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serendipity Technology - Custom App Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/concierge_style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-<nav id="scrollNav">
-  <div class="scroll-nav-inner">
-    <img src="img/logo_sm.png" alt="Logo" class="scroll-logo" />
-    <span class="scroll-title">Custom App Solutions</span>
-    <button class="scroll-chat-btn" onclick="openModal()" aria-label="Open Chat">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.5C21 14.9853 18.9853 17 16.5 17H13L7.5 21V17H6.5C4.01472 17 2 14.9853 2 12.5V8.5C2 6.01472 4.01472 4 6.5 4H16.5C18.9853 4 21 6.01472 21 8.5V12.5Z" />
-      </svg>
-    </button>
-  </div>
-</nav>
 
-<div id="header-sentinel"></div>
-<header id="mainHeader">
-  <div class="header-overlay">
-    <img src="img/logo.png" alt="Serendipity Technology Logo" class="mx-auto mb-4" style="width: 300px;" />
-    <h1 class="text-4xl font-bold mt-6 mb-2 text-white">Custom App Solutions</h1>
-    <p class="text-lg mb-6 text-white">Solving pain points with creativity and tech built just for you.</p>
-<button onclick="openModal()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-  Let's Talk
-</button>
-  </div>
-</header>
-
-<!-- Contact Modal -->
-<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-  <div class="bg-white rounded-lg shadow-xl p-6 max-w-md w-full relative">
-    <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">
-      &times;
-    </button>
-    <h2 class="text-xl font-semibold mb-4">Contact Us</h2>
-    <form id="contactForm" action="contact_twilio.php" method="POST" target="formFrame" onsubmit="return formSent();" class="space-y-4 text-sm">
-      <label class="block">
-        <span class="text-gray-700">Name:</span>
-        <input type="text" name="name" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500" />
-      </label>
-      <label class="block">
-        <span class="text-gray-700">Email:</span>
-        <input type="email" name="email" class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500" />
-      </label>
-      <label class="block">
-        <span class="text-gray-700">Phone:</span>
-        <input type="tel" name="phone" id="phone" required 
-  pattern="\d{10}" 
-  maxlength="10"
-  inputmode="numeric"
-  class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500" 
-  placeholder="Enter 10-digit number" />
-      </label>
-      <label class="block">
-        <span class="text-gray-700">What is your project?</span>
-        <textarea name="need" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:ring-orange-500 focus:border-orange-500"></textarea>
-      </label>
-      <div>
-        <span class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact:</span>
-        <div class="flex gap-4">
-          <label class="flex items-center gap-2">
-            <input type="radio" name="contact_method" value="email" class="accent-orange-500" checked>
-            <span>Email</span>
-          </label>
-          <label class="flex items-center gap-2">
-            <input type="radio" name="contact_method" value="sms" class="accent-orange-500">
-            <span>Text</span>
-          </label>
+    <!-- Sticky Navigation -->
+    <nav id="scrollNav" class="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 transform -translate-y-full transition-transform duration-300">
+        <div class="scroll-nav-inner flex items-center justify-between p-4">
+            <div class="flex items-center">
+                <img src="img/logo_sm.png" alt="Serendipity Technology" class="scroll-logo h-8 w-8 mr-3">
+                <span class="scroll-title text-xl font-bold text-gray-800">Custom App Solutions</span>
+            </div>
+            <button onclick="openModal()" class="scroll-chat-btn bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center" aria-label="Open Chat">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+                Let's Talk
+            </button>
         </div>
-      </div>
-      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-        Send
-      </button>
-    </form>
-    <div id="formSuccess" class="text-green-600 mt-4 hidden">Thanks! Your message has been sent.</div>
-  </div>
-</div>
-  <section>
-    <h2 class="section-title">What We Do</h2>
-    <div class="cards-row">
-      <div class="card">
-        <div class="img-frame"><img src="img/data_integration.svg" alt="Automation"></div>
-        <h3>Automation</h3>
-        <p>Streamline your processes and reduce manual tasks with purpose-built workflows tailored to your business.</p>
-      </div>
-      <div class="card">
-        <div class="img-frame"><img src="img/integration.svg" alt="Integration"></div>
-        <h3>Integration</h3>
-        <p>Connect the tools you already use — from CRMs to spreadsheets — so your data works smarter, not harder.</p>
-      </div>
-      <div class="card">
-        <div class="img-frame"><img src="img/insight.svg" alt="Insight"></div>
-        <h3>Insight</h3>
-        <p>Turn your information into actionable intelligence with simple dashboards and custom reporting tools.</p>
-      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header id="mainHeader" class="header-overlay min-h-screen flex items-center justify-center text-center text-white">
+        <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+            <img src="img/logo.png" alt="Serendipity Technology" class="mx-auto mb-8" style="width: 300px;">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Custom App Solutions</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200">Solving pain points with creativity and tech built just for you.</p>
+            <button onclick="openModal()" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                Let's Talk
+            </button>
+        </div>
+    </header>
+
+    <!-- Recent Projects Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-center mb-12" style="color: #f16522;">Recent Projects</h2>
+            <div class="cards-row grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="img-frame mb-4">
+                        <img src="img/map-pin-plus.svg" alt="Location Management" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Location Management System</h3>
+                    <p class="text-gray-600">Custom dashboard for managing multiple business locations with real-time data sync and automated reporting.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-frame mb-4">
+                        <img src="img/maps-arrow-diagonal.svg" alt="Route Optimization" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Route Optimization App</h3>
+                    <p class="text-gray-600">Mobile app that optimizes delivery routes saving 30% on fuel costs and improving customer satisfaction.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-frame mb-4">
+                        <img src="img/group.svg" alt="Team Collaboration" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Team Collaboration Portal</h3>
+                    <p class="text-gray-600">Integrated workspace connecting remote teams with project tracking, file sharing, and communication tools.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="img-frame mb-4">
+                        <img src="img/reply-to-message.svg" alt="Customer Service" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Customer Service Bot</h3>
+                    <p class="text-gray-600">AI-powered chatbot handling 80% of customer inquiries automatically while escalating complex issues to human agents.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="img-frame mb-4">
+                        <img src="img/multiple-pages-empty.svg" alt="Document Management" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Document Automation</h3>
+                    <p class="text-gray-600">Automated document generation and approval workflow reducing processing time from days to minutes.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="img-frame mb-4">
+                        <img src="img/settings-profiles.svg" alt="User Management" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">User Management System</h3>
+                    <p class="text-gray-600">Comprehensive user portal with role-based access controls, single sign-on, and detailed activity tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold text-center mb-12" style="color: #f16522;">What We Do</h2>
+            <div class="cards-row grid md:grid-cols-3 gap-8">
+                <div class="card text-center" data-aos="fade-up">
+                    <div class="img-frame mb-6">
+                        <img src="img/data_integration.svg" alt="Automation" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Automation</h3>
+                    <p class="text-gray-600">Streamline repetitive tasks and workflows with intelligent automation solutions that save time and reduce errors.</p>
+                </div>
+                <div class="card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="img-frame mb-6">
+                        <img src="img/integration.svg" alt="Integration" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Integration</h3>
+                    <p class="text-gray-600">Connect disparate systems and applications to create seamless data flow and unified business processes.</p>
+                </div>
+                <div class="card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="img-frame mb-6">
+                        <img src="img/insight.svg" alt="Insight" class="w-16 h-16 mx-auto">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Insight</h3>
+                    <p class="text-gray-600">Transform raw data into actionable insights with custom dashboards and analytics tailored to your business needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <img src="img/logo.png" alt="Serendipity Technology" class="mx-auto mb-6" style="width: 200px;">
+            <p class="text-gray-400 mb-6">Custom technology solutions that solve real business problems.</p>
+            <p class="text-gray-400">
+                Contact: <a href="mailto:troy@serendipitytech.net" class="text-blue-400 hover:text-blue-300">troy@serendipitytech.net</a>
+            </p>
+            <button onclick="openModal()" class="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition duration-300">
+                Start a Project
+            </button>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold">Let's Start Your Project</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="contactForm" action="contact_twilio.php" method="POST" target="formFrame">
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                    <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a 10-digit phone number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="project" class="block text-sm font-medium text-gray-700 mb-2">Tell us about your project *</label>
+                    <textarea id="project" name="project" required rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Preferred contact method:</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="contact_preference" value="email" class="mr-2">
+                            Email
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="contact_preference" value="sms" class="mr-2">
+                            SMS
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button type="submit" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md font-semibold transition duration-300">
+                        Send Message
+                    </button>
+                    <button type="button" onclick="closeModal()" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-md font-semibold transition duration-300">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            
+            <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                <p class="font-semibold">Thank you for your message!</p>
+                <p>We'll get back to you within 24 hours.</p>
+            </div>
+            
+            <iframe name="formFrame" style="display: none;"></iframe>
+        </div>
     </div>
-  </section>
-  
-<section>
-  <h2 class="section-title" style="color: #f16522;">Recent Projects</h2>
-  <div class="cards-row">
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/map-pin-plus.svg" alt="Map icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Interactive Mapping Utility</h3>
-        <p>A custom-built tool to visualize location-based data and connect it to relational datasets. Designed to simplify complex queries and support real-time lookups through an intuitive map-based interface.</p>
-      </div>
-    </div>
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/maps-arrow-diagonal.svg" alt="Location icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Community Resource Locator</h3>
-        <p>This project centralized scattered data into a clean, user-friendly system for public visibility. The goal was to surface physical access points and support services in underserved areas — solving both data hygiene and discoverability challenges.</p>
-      </div>
-    </div>
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/group.svg" alt="People icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Custom Membership Platform</h3>
-        <p>We developed a secure, scalable membership database to manage signups, communication, events, and reporting — all tailored to a non-profit’s internal workflow and visibility needs, without vendor lock-in.</p>
-      </div>
-    </div>
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/reply-to-message.svg" alt="Email icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Email Marketing Integration</h3>
-        <p>Integrated third-party platforms with custom logic for segmentation, contact syncing, and automated workflows — enabling smarter, more targeted outreach without relying solely on standard CRM features.</p>
-      </div>
-    </div>
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/multiple-pages-empty.svg" alt="Catalog icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Dynamic Inventory Catalog</h3>
-        <p>Created a visual inventory catalog that reads Excel data and images from folders to generate a searchable, web-friendly display — ideal for sharing product collections with clients and internal teams.</p>
-      </div>
-    </div>
-    <div class="card" style="display: flex; align-items: flex-start; gap: 1rem;">
-      <img src="img/settings-profiles.svg" alt="File sharing icon" style="width: 40px; height: 40px; margin-top: 0.25rem;" />
-      <div style="text-align: left;">
-        <h3 style="margin-top: 0;">Customer Resource Management</h3>
-        <p>A centralized system for client-uploaded files, review feedback, and project signoff — streamlining collaboration and asset readiness for print, digital, or live event use.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<footer class="mt-10 text-center text-sm text-gray-600">
-  &copy; 2025 Serendipity Technology &bull; Troy Shimkus &bull;
-  <a href="mailto:troy@serendipitytech.net" class="text-blue-500 hover:underline">troy@serendipitytech.net</a>
-</footer>
 
-<script>
-function openModal() {
-  document.getElementById("contactModal").classList.remove("hidden");
-}
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800
+        });
 
-function closeModal() {
-  document.getElementById("contactModal").classList.add("hidden");
-  document.getElementById("formSuccess").classList.add("hidden");
-  document.getElementById("contactForm").reset();
-}
+        // Modal functions
+        function openModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.getElementById('contactModal').classList.add('flex');
+        }
 
-function formSent() {
-  // Show success message
-  const successMsg = document.getElementById("formSuccess");
-  successMsg.classList.remove("hidden");
+        function closeModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.getElementById('contactModal').classList.remove('flex');
+            document.getElementById('contactForm').reset();
+            document.getElementById('formSuccess').classList.add('hidden');
+        }
 
-  // Hide modal after 3 seconds
-  setTimeout(() => {
-    closeModal();
-  }, 3000);
+        // Form submission handler
+        function formSent() {
+            document.getElementById('formSuccess').classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            setTimeout(closeModal, 3000);
+        }
 
-  return true; // Allow form to actually submit
-}
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
 
-
-  window.addEventListener("scroll", () => {
-    const scrollNav = document.getElementById("scrollNav");
-    if (window.scrollY > 100) {
-      scrollNav.classList.add("visible");
-    } else {
-      scrollNav.classList.remove("visible");
-    }
-  });
-</script>
-
-<iframe name="formFrame" style="display: none;"></iframe>
+        // Sticky navigation
+        let lastScrollTop = 0;
+        const scrollNav = document.getElementById('scrollNav');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                scrollNav.style.transform = 'translateY(0)';
+            } else {
+                scrollNav.style.transform = 'translateY(-100%)';
+            }
+        });
+    </script>
 </body>
 </html>
