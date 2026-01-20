@@ -196,3 +196,10 @@ Moved Recent Projects section from bottom of page to top position, placing it be
 ## Recent Changes
 - **Layout Update (2026-01-20):** Moved Recent Projects section from bottom of page to top position, now appearing between Hero Header and Services sections for better visibility and user engagement
 
+
+## Update: 2026-01-20T03:00:37.278Z
+
+Moved the Recent Projects section to appear immediately after the Hero Header section, before the Services (What We Do) section. This improves the page flow by showcasing concrete examples of work before explaining the general services offered.
+
+Updated page structure order: Recent Projects section now appears between Hero Header and Services sections (previously was at bottom before footer). This change improves user engagement by showcasing project examples earlier in the page flow.
+
